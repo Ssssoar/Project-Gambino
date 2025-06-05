@@ -1,0 +1,52 @@
+body{
+    background-image: url("assets/felt.png");
+    background-repeat: repeat
+}
+
+h1{
+    width: 50%;
+    margin: 10px 25% 10px 25%;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    border: solid 3px;
+    border-radius: 3px;
+    background-color: rgb(20, 92, 20);
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.6);
+    text-align: center
+}
+
+section{
+    background-color: rgba(0, 0, 0, 0.397);
+    padding: 10px 40px 10px 40px;
+    margin: auto;
+    overflow: hidden;
+    width: 1200px;
+    border: solid 5px rgb(214, 214, 214);
+    border-radius: 5px
+}
+
+.card{
+    float: left;
+}
+
+button{
+    width: 50%;
+    margin: 10px 25% 10px 25%;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: solid 3px;
+    border-radius: 3px;
+    background-color: rgb(20, 92, 20);
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.6);
+}
+
+button:hover{
+    color: grey
+}
+
+button:active{
+    color: yellow;
+    box-shadow: 0px
+}
