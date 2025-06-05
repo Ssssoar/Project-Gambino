@@ -55,6 +55,7 @@ async function reveal(){
     await showHand(playerResult,"player")
     console.log(playerResult)
     var winner = await compareHands(playerResult,opponentResult)
+    console.log(winner)
     if (typeof(winner) == "undefined"){
         await declareTie()
     }else{

@@ -5,25 +5,49 @@ var handValues = ["StraightFlush","FourOfAKind","FullHouse","Flush","Straight","
 async function compareHands(first,second){ //if true, first won
     var ret
     if (first[0] == second[0]){ //it's a draw, check high values
+        var flag = false
         var counter = 0
         if (first[1].isArray){
             first[1].forEach(() =>{
-                scoreValues.forEach((score) =>{
-                    if (score == first[1][counter]){
+                if(!flag){
+                    scoreValues.forEach((score) =>{
+                        if(!flag){
+                            if (score == first[1][counter]){
+                                ret = true
+                                flag = true
+                            }else if (score == second[1][counter]){
+                                ret = false
+                                flag = true
+                            }
+                        }
+                    })
+                    counter += 1
+                }
+            })
+        }else{
+            scoreValues.forEach((score) =>{
+                if(!flag){
+                    if (score == first[1]){
                         ret = true
-                    }else if (score == second[1][counter]){
+                        flag = true
+                    }else if (score == second[1]){
                         ret = false
+                        flag = true
                     }
-                })
-                counter += 1
+                }
             })
         }
     }else{
+        var flag = false
         handValues.forEach((value) =>{
-            if (value == first[0]){
-                ret = true
-            }else if(value == second[0]){
-                ret = false
+            if (!flag){
+                if (value == first[0]){
+                    ret = true
+                    flag = true
+                }else if(value == second[0]){
+                    ret = false
+                    flag = true
+                }
             }
         })
     }
@@ -115,8 +139,11 @@ async function isTwoPair(sortedValues){
                     pair2 = value
                 }
             }
-        }else if(repeats == 1){
-            kicker = value
+        }else{
+            if(repeats == 1){
+                kicker = value
+            }
+            repeats = 1
         }
         prevValue = value
     })
